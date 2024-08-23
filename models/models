@@ -1,0 +1,5 @@
+mkdir -p models
+curl -L -o models/NACN_korea-001.safetensors "https://drive.google.com/uc?export=download&id=1-XK12YFnPEUvFPzBC9CtXDiowoUZa7Wr"
+wget -O models/NACN_korea-001.safetensors "https://drive.google.com/uc?export=download&id=1-XK12YFnPEUvFPzBC9CtXDiowoUZa7Wr"
+
+
