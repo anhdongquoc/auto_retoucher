@@ -1,10 +1,14 @@
 import gdown
+import os
+
+# Tạo thư mục models/ nếu chưa tồn tại
+os.makedirs('models', exist_ok=True)
 
 # Google Drive file ID
 file_id = '1-XK12YFnPEUvFPzBC9CtXDiowoUZa7Wr'
 destination = 'models/NACN_korea-001.safetensors'
 
-# Download file
+# Tải file
 gdown.download(f'https://drive.google.com/uc?export=download&id={file_id}', destination, quiet=False)
 
 
