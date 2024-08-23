@@ -1,0 +1,18 @@
+import os
+import requests
+
+def download_model(url, filename, save_path='models/'):
+    if not os.path.exists(save_path):
+        os.makedirs(save_path)
+    
+    response = requests.get(url, stream=True)
+    with open(os.path.join(save_path, filename), 'wb') as f:
+        for chunk in response.iter_content(chunk_size=8192):
+            f.write(chunk)
+
+# URL của file mô hình trên Google Drive
+model_url = 'https://drive.google.com/uc?id=FILE_ID'
+filename = 'NACN_korea-001.safetensors'
+
+# Tải mô hình và lưu vào thư mục models/
+download_model(model_url, filename)
