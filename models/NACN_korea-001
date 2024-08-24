@@ -5,7 +5,7 @@ import os
 os.makedirs('models', exist_ok=True)
 
 # Google Drive file ID
-file_id = '1-XK12YFnPEUvFPzBC9CtXDiowoUZa7Wr'
+file_id = '1i2ctGTU2ZsO8L3MgVj0xxwrfxNdd93se'
 destination = 'models/NACN_korea-001.safetensors'
 
 # Tải file
