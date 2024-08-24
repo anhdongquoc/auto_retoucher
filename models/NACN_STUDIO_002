@@ -1,0 +1,12 @@
+import gdown
+import os
+
+# Tạo thư mục models/ nếu chưa tồn tại
+os.makedirs('models', exist_ok=True)
+
+# Google Drive file ID của mô hình mới
+file_id = '1J3uv5rdhX0LyI9ImcXl7b2_sAfwgNYum'  # Thay đổi file_id mới nhất
+destination = 'models/NACN_STUDIO_002.safetensors'  # Tên file mô hình mới
+
+# Tải file từ Google Drive
+gdown.download(f'https://drive.google.com/uc?export=download&id={file_id}', destination, quiet=False)
