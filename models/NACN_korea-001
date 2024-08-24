@@ -5,8 +5,8 @@ import os
 os.makedirs('models', exist_ok=True)
 
 # Google Drive file ID
-file_id = '16uguobOw54qlmtBObnhbLpU665Iw6xDR'
+file_id = '1__jR-guSGJxfaWkswy1u848KSrwJb14r'
 destination = 'models/NACN_korea-001.safetensors'
 
 # Tải file
-gdown.download_folder(f'https://drive.google.com/drive/folders/{file_id}?usp=sharing', output=destination, quiet=False)
+gdown.download(f'https://drive.google.com/uc?export=download&id={file_id}', destination, quiet=False)
