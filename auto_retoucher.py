@@ -83,18 +83,12 @@ def blending_mask(image, mask_size, side=''):
 
 class AutoRetoucher:
     '''
-    Class for processing high resolution image with people (for example, 40 megapixels from DSLR)
-    For example, fast skin and face retouching full-sized or medium-sized portraits.
-
-    Steps are:
-        1. Detect human figure and generating mask
-        2. Split image within mask in square size sprites (for SDXL up to 1024x1024px)
-        3. Processing every sprite with SDXL Img2Img, with prompt.
-        4. Compile sprite with overlappings in whole image
-        5. Applying new image onto original background with figure' mask and blurred edges
+    Class for processing high resolution images with people (e.g., 40 megapixels from DSLR).
+    For example, fast skin and face retouching for full-sized or medium-sized portraits.
     '''
-
+    
     def __init__(self):
+        # Khởi tạo mô hình hoặc các thành phần khác ở đây
         self.source = None
         self.mask = None
         self.q_sx = None
@@ -103,12 +97,27 @@ class AutoRetoucher:
         self.overlap_y = None
         self.sprites = None
         self.sprites_table = None
-        self.source = None
         self.generated_imgs = []
         self.original_imgs = []
         self.pipe = None
         self.stop_button_pressed = False
         self.current_checkpoint = ''
+
+    def forward(self, image):
+        # Phương thức xử lý ảnh chính của mô hình
+        pass
+
+    def load_weights(self, state_dict):
+        '''
+        Tải trọng số từ state_dict vào mô hình.
+        
+        state_dict: dict
+            Trọng số mô hình được nạp từ file safetensors.
+        '''
+        # Giả sử mô hình của bạn là một đối tượng torch.nn.Module
+        # Ví dụ:
+        # self.model.load_state_dict(state_dict)
+        pass
 
     def get_checkpoints_list(self, path=MODELS_PATH):
         ''' Returns checkpoint's list in specified folder '''
@@ -119,6 +128,7 @@ class AutoRetoucher:
             raise gr.Error('Put Stable Diffusion cpkt or safetensors checkpoints to folder!')
         self.current_checkpoint = checkpoints[0]
         return checkpoints
+
 
     def resize(self, image, max_size=1600):
         ''' Resize image to preview (mask, composite, grid and e.t.c) with value of longest size '''
